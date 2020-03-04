@@ -4,8 +4,20 @@
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-logomodern-business-nav/blob/master/LICENSE)
  */
 body {
-  padding-top: 56px;
+    padding-top: 56px;
+    /*font-family: Montserrat,Helvetica,Arial,sans-serif;*/
 }
+
+/*h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font: Montserrat;
+    font-weight: 500;
+}*/
+
 
 .carousel-item {
   height: 65vh;
@@ -21,3 +33,23 @@ body {
   margin-bottom: 30px;
 }
 
+.bg-dark {
+    background: #0d3e4f!important;
+}
+
+a {
+    color: #00818f;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #00818f;
+    border-color: #00818f;
+}
+
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
+    color: #fff;
+    background-color: #244c5a;
+    border-color: #244c5a; /*set the color you want here*/
+}
