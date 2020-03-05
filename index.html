@@ -29,23 +29,23 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="about.html">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="http://emr-permafrost:3838/Geotech/">Geotechnical Data</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="http://emr-permafrost:3838/Trumpet_Timeseries">Temperature Data</a>
-          </li>
-        </ul>
+          <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                  <a class="nav-link" href="about.html">About</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="Geotech.html">Geotechnical Data</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="Temperature.html">Temperature Data</a>
+              </li>
+          </ul>
       </div>
     </div>
   </nav>
 
   <header>
-    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <div id="carouselExampleIndicators" class="carousel slide" data-interval="5000" data-ride="carousel">
       <ol class="carousel-indicators">
         <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
         <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -63,7 +63,7 @@
         <div class="carousel-item" style="background-image: url('img/takhini2.jpg')">
           <div class="carousel-caption d-none d-md-block">
             <h3></h3>
-            <p>Tahkini River thaw slump</p>
+            <p>Takhini River thaw slump</p>
           </div>
         </div>
         <!-- Slide Three - Set the background image for this slide in the line below -->
@@ -99,7 +99,7 @@
             <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
           </div>
           <div class="card-footer">
-            <a href="http://emr-permafrost:3838/Geotech/" class="btn btn-primary">Learn More</a>
+            <a href="Geotech.html" class="btn btn-primary">Learn More</a>
           </div>
         </div>
       </div>
@@ -110,13 +110,13 @@
             <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis ipsam eos, nam perspiciatis natus commodi similique totam consectetur praesentium molestiae atque exercitationem ut consequuntur, sed eveniet, magni nostrum sint fuga.</p>
           </div>
           <div class="card-footer">
-            <a href="http://emr-permafrost:3838/Trumpet_Timeseries" class="btn btn-primary">Learn More</a>
+            <a href="Temperature.html" class="btn btn-primary">Learn More</a>
           </div>
         </div>
       </div>
       <div class="col-lg-4 mb-4">
         <div class="card h-100">
-          <h4 class="card-header">Reports</h4>
+          <h4 class="card-header">Documents</h4>
           <div class="card-body">
             <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
           </div>
@@ -130,12 +130,36 @@
 </div>
   <!-- /.container -->
   <!-- Footer -->
-  <footer class="py-5 bg-dark">
+  <footer class="py-4 bg-dark">
     <div class="container">
-      <p class="m-0 text-center text-white">Copyright &copy; Yukon Government 2020</p>
+        <div class="brand">
+            <a href="index.html"><img src="img/logo-rev.png" style="height:62px;width:158px;margin-right:30px;" /></a>
+            <div><img class="aurora" src="img/Aurora-main.svg" style=""/></div>
+        </div>
+        
+       <!--<p class="m-0 text-right text-white">Copyright &copy; Yukon Government 2020</p>-->
     </div>
     <!-- /.container -->
   </footer>
+  <div id="footer-menu" class="py-4">
+      
+      <div class="container">
+          <p style="float:right;">Copyright &copy; Yukon Government 2020</p>
+          <ul class="fNav" style="float:left;">
+              <li><a href="/en" class="active">Home</a></li>
+              <li><a href="/en/documents">Documents</a></li>
+              <li><a href="/en/events">Events</a></li>
+              <li><a href="/en/forms">Forms</a></li>
+              <li><a href="/en/news">News</a></li>
+          </ul>
+          <ul class="fNav" style="float:left;">
+              <li><a href="/en/contact-government">Contact us</a></li>
+              <li><a href="/en/copyright">Copyright</a></li>
+              <li><a href="/en/disclaimer">Disclaimer</a></li>
+              <li><a href="/en/privacy">Privacy statement</a></li>
+          </ul>
+      </div>
+  </div>
 
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>

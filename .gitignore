@@ -1,2 +1,4 @@
 node_modules
 package-lock.json
+shiny/Geotech/dbconnection.R
+shiny/Temperature/dbconnection.R
