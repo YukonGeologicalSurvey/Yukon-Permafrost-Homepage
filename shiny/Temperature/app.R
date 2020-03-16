@@ -1,6 +1,7 @@
 #######################################################################################
 #--------------# Trumpet curve and time series plot combinatino app #-----------------#
 #######################################################################################
+
 source("dbconnection.R")
 
 #-------------------------------------------------------------------------------------
@@ -25,12 +26,12 @@ pft.map <- function(loc) {
   # Set up icon colours
   pal <- colorFactor(c("#DC4405", "grey40", "#0097A9"), domain = c("no", "undetermined", "yes"))
   # Create map
-    leaflet(loc) %>%
-      addProviderTiles('Esri.WorldTopoMap') %>% # More here: http://leaflet-extras.github.io/leaflet-providers/preview/index.html
-      addCircleMarkers(lng=loc$long, lat=loc$lat,
-                       popup=leafpop::popupTable(f.link(loc), row.numbers=FALSE, feature.id=FALSE),
-                       color = ~pal(permafrost), opacity=1) %>%
-      leaflet::addLegend("topright", pal = pal, values = ~permafrost)
+  leaflet(loc) %>%
+    addProviderTiles('Esri.WorldTopoMap') %>% # More here: http://leaflet-extras.github.io/leaflet-providers/preview/index.html
+    addCircleMarkers(lng=loc$long, lat=loc$lat,
+                     popup=leafpop::popupTable(f.link(loc), row.numbers=FALSE, feature.id=FALSE),
+                     color = ~pal(permafrost), opacity=1) %>%
+    leaflet::addLegend("topright", pal = pal, values = ~permafrost)
   
 }
 
@@ -38,25 +39,16 @@ pft.map <- function(loc) {
 ########## pft.query and pft.subset: Reactive table and dygraph query and subset #################################
 
 ## Query daily average data from PFT_SUMMARY in database 
-pft.query <- function(con, location) { #aggr
-  # if (aggr=="none") {
-  #     obs <- dbGetQuery(con, paste0("SELECT TEMPTIME, DEPTH, ROUND(TEMP, 2) AS TEMP ",
-  #                                   "FROM PFT_SUMMARY ",
-  #                                   "WHERE NAME = '", location, "' ",
-  #                                   "ORDER BY TEMPTIME, DEPTH DESC"))
-  #     obs$TEMPTIME <- as.POSIXct(obs$TEMPTIME, tz = "", format = "%Y-%m-%d %H:%M")
-  #     
-  # } else {
-  obs <- dbGetQuery(con, paste0("SELECT TEMPDATE, MONTH, YEAR, DEPTH, DAILYTEMP, ",
+pft.query <- function(con, location) { 
+  obs <- dbGetQuery(con, paste0("SELECT NAME, TEMPDATE, MONTH, YEAR, DEPTH, DAILYTEMP, ",
                                 "WHO_ID, METHOD_ID ",
                                 "FROM YGSIDS.PFT_MVW_SUMMARY2 ",
                                 "WHERE NAME = '", location, "' ",
-                                "ORDER BY DEPTH DESC, TEMPDATE" ))
+                                "ORDER BY TEMPDATE, DEPTH DESC" ))
   obs$TEMPDATE <- as.Date(obs$TEMPDATE)
   obs$MONTH <- as.Date(obs$MONTH)
   #obs$YEAR <- as.Date(obs$YEAR)
-  # } 
-  names(obs) <- c("date", "month", "year", "depth", "temp", "who_id", "method_id")
+  names(obs) <- c("name", "date", "month", "year", "depth", "temp", "who_id", "method_id")
   return(obs)
 }
 
@@ -64,13 +56,15 @@ pft.query <- function(con, location) { #aggr
 pft.subset <- function(obs, aggr, depth_min, depth_max, date_s, date_e) {
   
   if (aggr=="none") {
+    location <- unique(obs$name)
     obs <- dbGetQuery(con, paste0("SELECT TEMPTIME, DEPTH, ROUND(TEMP, 2) AS TEMP ",
                                   "FROM YGSIDS.PFT_MVW_SUMMARY ",
                                   "WHERE NAME = '", location, "' ",
-                                  "AND DEPTH >= ", depth_max, " AND DEPTH <=", depth_min, 
-                                  " AND TEMPTIME BETWEEN '", date_s ,"' AND '", date_e, "'",
                                   "ORDER BY TEMPTIME, DEPTH DESC"))
     obs$TEMPTIME <- as.POSIXct(obs$TEMPTIME, tz = "", format = "%Y-%m-%d %H:%M")
+    names(obs) <- c("date", "depth", "temp")
+    obs <- obs[obs$depth >= depth_max & obs$depth <= depth_min &
+                 obs$date >= date_s & obs$date <= date_e,]
     
   } else if (aggr=="day") {
     obs <- obs[obs$depth >= depth_max & obs$depth <= depth_min &
@@ -279,13 +273,13 @@ method.met <- function(method) {
                                 "('", method, "')"))
   
   tab <- reshape(tab, times=c("ID", "Precision", "Accuracy", "Method", "Sensor manufacturer",
-                              "Sensor manufacturer model", "Sensor manufacturer date", "Logger manufacturer",
-                              "Logger manufacturer model", "logger manufacturer date", "Radiation shield",
+                              "Sensor manufacturer model", "Logger manufacturer",
+                              "Logger manufacturer model", "Radiation shield",
                               "units"),
                  ids=NULL,
                  varying = c("ID", "PRECISION", "ACCURACY", "METHOD", "SENSOR_MANUFACTURER",
-                             "SENSOR_MANUFACTURER_MODEL", "SENSOR_MANUFACTURER_DATE", "LOGGER_MANUFACTURER",
-                             "LOGGER_MANUFACTURER_MODEL", "LOGGER_MANUFACTURER_DATE", "RADIATION_SHIELD",
+                             "SENSOR_MANUFACTURER_MODEL", "LOGGER_MANUFACTURER",
+                             "LOGGER_MANUFACTURER_MODEL", "RADIATION_SHIELD",
                              "UNITS"),
                  v.names= "value",
                  direction="long", sep="")
@@ -340,33 +334,27 @@ map <- pft.map(locs)
 # Define UI for application
 ui <- function(request){fluidPage( 
   
-  # Application title
-  #titlePanel(title = span("Yukon Ground Temperature Data Portal (preliminary version)", 
-  #                        style = "color: Black; font-size: 28px")
-  #),
-  
   # Set colour of Navigation bar
-  tags$style(HTML(" 
+  tags$style(HTML("
         .navbar { background-color: #F2A900;}
         .navbar-default .navbar-nav > li > a {color:white;}
         .navbar-default .navbar-nav > .active > a,
         .navbar-default .navbar-nav > .active > a:focus,
         .navbar-default .navbar-nav > .active > a:hover {color: white;background-color: #d99700;}
         .navbar-default .navbar-nav > li > a:hover {color: white;background-color:#d99700;}
-        #mymap {height: calc(100vh - 250px) !important;}
+        #mymap {height: calc(100vh - 250px) !important; 
                   ")),
   
   # Setup navigation bar (Map, Temperature)
-  navbarPage(title = "", id = "Navbar", selected = "Map",
-             
-             #tabPanel(title=HTML("<a href='http://emr-permafrost:3838/Yukon-Permafrost-Homepage/#'>Home</a>")),
+  navbarPage(title = "", id = "Navbar", 
              
              tabPanel("Map", 
-                      leafletOutput("mymap") %>% withSpinner(color="#0097A9"), 
+                      leafletOutput("mymap") %>% withSpinner(color="#0097A9"),
                       br(),
                       downloadButton("downloadLoc.csv", "Download locations CSV"),
                       downloadButton('downloadLoc.kml', "Download locations KML"),
                       downloadButton('downloadLoc.shp', "Download locations shapefile")),
+             
              tabPanel("Temperature", 
                       # Locations and years panels
                       fluidRow(
@@ -376,7 +364,7 @@ ui <- function(request){fluidPage(
                                            selected="")),
                         column(2,
                                selectInput("aggr", "Aggregation:",
-                                           choices=c("day", "month", "year"), #none
+                                           choices=c("none", "day", "month", "year"),
                                            selected="day")),
                         column(3,
                                uiOutput("secondSelection")),
@@ -408,8 +396,8 @@ ui <- function(request){fluidPage(
                                            br(),
                                            downloadButton("downloadTrumpet", "Download plot"),
                                            plotOutput("TrumpetCurves",
-                                                                        width = "100%",
-                                                                        height = "450px") %>% 
+                                                      width = "850px",
+                                                      height = "600px") %>% 
                                              withSpinner(color="#0097A9"),
                                            br(),
                                            textOutput("trumpetCurves_txt"),
@@ -610,9 +598,9 @@ server <- shinyServer(function(input, output, session) {
       ggsave(file, plot = pft.plot_trumpetcurve(mainObs(), paste0(input$years[1], "-01-01"),
                                                 paste0(input$years[2], "-12-31")),
              device = "png")
-      }
-    )
-
+    }
+  )
+  
   
   ### Metadata
   # Location metadata
