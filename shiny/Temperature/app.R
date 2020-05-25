@@ -24,7 +24,7 @@ pft.map <- function(loc) {
   }
   
   # Set up icon colours
-  pal <- colorFactor(c("#DC4405", "grey40", "#0097A9"), domain = c("no", "undetermined", "yes"))
+  pal <- colorFactor(c("#DC4405", "grey40", "#0097A9"), domain = c("No", "Undetermined", "Yes", "Weather station"))
   # Create map
     leaflet(loc) %>%
       addProviderTiles('Esri.WorldTopoMap') %>% # More here: http://leaflet-extras.github.io/leaflet-providers/preview/index.html
