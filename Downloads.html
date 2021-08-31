@@ -9,7 +9,7 @@
   <meta name="author" content="">
   <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico" />
 
-  <title>About - Yukon Permafrost Database</title>
+  <title>Downloads - Yukon Permafrost Database</title>
 
   <!-- Bootstrap core CSS -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -46,32 +46,27 @@
     <div class="container">
 
         <!-- Page Heading/Breadcrumbs -->
-        <h1 class="mt-4 mb-3">
-            About
-        </h1>
 
         <ol class="breadcrumb">
             <li class="breadcrumb-item">
                 <a href="index.html">Home</a>
             </li>
-            <li class="breadcrumb-item active">About</li>
+            <li class="breadcrumb-item active">Downloads</li>
         </ol>
 
         <!-- Intro Content -->
-        <div class="row">
+        <div class="row" style='margin-top:40px;margin-bottom:40px;'>
             <!--<div class="col-lg-6">
                 <img class="img-fluid rounded mb-4" src="img/hilltop.jpg" alt="">
             </div>-->
             <div class="col-lg-12">
-                <h2>About the Yukon Permafrost Database</h2>
-                <p>Permafrost degradation is impacting Yukon communities and infrastructure at increasing rates with costly consequences. Access to data describing Yukon permafrost is critical for supporting a variety of activities, including: community and infrastructure planning, climate change adaptation planning, and environmental assessments.</p>
-                <p>Development of the Yukon Permafrost Database began in early 2019 to make permafrost data collected within Yukon accessible to a variety of users, including governments, academics, consultants and the general public. The first year of work focused on developing a data model and data standards, establishing a prototype database, and importing existing data sets from various Yukon Government branches, including:
-                    <ul>
-                        <li>Transportation and Engineering Branch, Department of Highways and Public Works</li>
-                        <li>Land Development Branch, Department of Community Services</li>
-                        <li>Yukon Geological Survey, Department of Energy, Mines and Resources</li>
-                        <li>Assessment and Abandoned Mines, Department of Energy, Mines and Resources</li>
-                    </ul></p>
+                <h2>Downloads</h2>
+                <p>The data compiled and managed in the Yukon Permafrost Database is available for download as CSV files. These datasets are published out to an FTP site via weekly scripts.
+                  <ul>
+                    <li><a href="https://ygsftp.gov.yk.ca/PermafrostDB/Data/Yukon_Permafrost_Geotech_Data.zip">Geotechical Borehole Dataset (2MB)</a></li>
+                    <li><a href="https://ygsftp.gov.yk.ca/PermafrostDB/Data/Yukon_Permafrost_Temperature_Data.zip">Temperature Sensor Dataset (160MB)</a></li>
+                  </ul>
+
                 <p>The database will be an evolving product that will be updated periodically as new data sources become available.</p>
                 <p>For more information, please contact YGS-surficial@yukon.ca.</p>
             </div>
@@ -162,7 +157,7 @@
     <div id="footer-menu" class="py-4">
 
         <div class="container">
-            <p style="float:right;">Copyright &copy; Yukon Government 2020</p>
+            <p style="float:right;">Copyright &copy; Yukon Government <script>new Date().getFullYear()>2017&&document.write(new Date().getFullYear());</script></p>
             <ul class="fNav" style="float:left;">
                 <li><a href="/en" class="active">Home</a></li>
                 <li><a href="/en/documents">Documents</a></li>

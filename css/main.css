@@ -5,10 +5,11 @@
  */
 body {
     padding-top: 56px;
-    /*font-family: Montserrat,Helvetica,Arial,sans-serif;*/
+    font-family: Montserrat,Helvetica,Arial,sans-serif;
+    color: #323232;
 }
 
-/*h1,
+h1,
 h2,
 h3,
 h4,
@@ -16,11 +17,11 @@ h5,
 h6 {
     font: Montserrat;
     font-weight: 500;
-}*/
+}
 
 
 .carousel-item {
-  height: 65vh;
+  height: 39vh;
   min-height: 300px;
   background: no-repeat center center scroll;
   -webkit-background-size: cover;
@@ -93,4 +94,3 @@ brand{
     list-style:none;
     flex-flow:column wrap;
 }
-
