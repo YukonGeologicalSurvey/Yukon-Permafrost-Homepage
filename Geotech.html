@@ -21,7 +21,7 @@
 
       iframe {
           width: 100%;
-          min-height: 800px;
+          min-height: 1000px;
           border: 1px solid #fff;
       }
 
@@ -49,6 +49,12 @@
               </li>
               <li class="nav-item">
                   <a class="nav-link" href="Temperature.html">Temperature data</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="Map.html">Map</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="Reports.html">Reports</a>
               </li>
           </ul>
       </div>
@@ -78,17 +84,17 @@
       <div class="container">
           <p style="float:right;">Copyright &copy;<script>new Date().getFullYear()>2017&&document.write(new Date().getFullYear());</script> Government of Yukon </p>
           <ul class="fNav" style="float:left;">
-              <li><a href="/en" class="active">Home</a></li>
-              <li><a href="/en/documents">Documents</a></li>
-              <li><a href="/en/events">Events</a></li>
-              <li><a href="/en/forms">Forms</a></li>
-              <li><a href="/en/news">News</a></li>
+              <li><a href="https://yukon.ca/en" class="active">Home</a></li>
+              <li><a href="https://yukon.ca/en/documents">Documents</a></li>
+              <li><a href="https://yukon.ca/en/events">Events</a></li>
+              <li><a href="https://yukon.ca/en/forms">Forms</a></li>
+              <li><a href="https://yukon.ca/en/news">News</a></li>
           </ul>
           <ul class="fNav" style="float:left;">
-              <li><a href="/en/contact-government">Contact us</a></li>
-              <li><a href="/en/copyright">Copyright</a></li>
-              <li><a href="/en/disclaimer">Disclaimer</a></li>
-              <li><a href="/en/privacy">Privacy statement</a></li>
+              <li><a href="https://yukon.ca/en/contact-government">Contact us</a></li>
+              <li><a href="https://yukon.ca/en/copyright">Copyright</a></li>
+              <li><a href="https://yukon.ca/en/disclaimer">Disclaimer</a></li>
+              <li><a href="https://yukon.ca/en/privacy">Privacy statement</a></li>
           </ul>
       </div>
   </div>
@@ -99,9 +105,9 @@
   <script>
     var SiteID = location.search.split("Site=")[1];
     if (SiteID == undefined){
-      var iframeUrl = 'shiny/Geotech'
+      var iframeUrl = './shiny/Geotech/'
     } else {
-      var iframeUrl = "/shiny/Geotech/?_inputs_&loc=%22"+ SiteID + "%22&loc-selectized=%22%22&Navbar=%22Data%22"
+      var iframeUrl = "./shiny/Geotech/?_inputs_&loc=%22"+ SiteID + "%22&loc-selectized=%22%22&Navbar=%22Data%22"
     };
     document.getElementsByTagName("iframe")[0].src = iframeUrl;
 
