@@ -24,7 +24,7 @@
     <!-- Navigation -->
     <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light fixed-top">
         <div class="container">
-            <div><a href="index.html"><img src="img/logo.png" style="height:40px;width:auto;margin-right:30px;" /></a></div>
+            <div><a href="index.html"><img src="img/logo.png" alt="Yukon Government Logo" style="height:40px;width:auto;margin-right:30px;" /></a></div>
             <a class="navbar-brand" href="index.html">Yukon Permafrost Database</a>
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -72,74 +72,6 @@
                 <p>For more information, please contact <a href="mailto:YGS-surficial@yukon.ca">ygs-surficial@yukon.ca</a>.</p>
             </div>
         </div>
-        <!-- /.row -->
-        <!--
-            <h2>Our Team</h2>
-
-            <div class="row">
-              <div class="col-lg-4 mb-4">
-                <div class="card h-100 text-center">
-                  <img class="card-img-top" src="http://placehold.it/750x450" alt="">
-                  <div class="card-body">
-                    <h4 class="card-title">Team Member</h4>
-                    <h6 class="card-subtitle mb-2 text-muted">Position</h6>
-                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus aut mollitia eum ipsum fugiat odio officiis odit.</p>
-                  </div>
-                  <div class="card-footer">
-                    <a href="#">name@example.com</a>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-4 mb-4">
-                <div class="card h-100 text-center">
-                  <img class="card-img-top" src="http://placehold.it/750x450" alt="">
-                  <div class="card-body">
-                    <h4 class="card-title">Team Member</h4>
-                    <h6 class="card-subtitle mb-2 text-muted">Position</h6>
-                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus aut mollitia eum ipsum fugiat odio officiis odit.</p>
-                  </div>
-                  <div class="card-footer">
-                    <a href="#">name@example.com</a>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-4 mb-4">
-                <div class="card h-100 text-center">
-                  <img class="card-img-top" src="http://placehold.it/750x450" alt="">
-                  <div class="card-body">
-                    <h4 class="card-title">Team Member</h4>
-                    <h6 class="card-subtitle mb-2 text-muted">Position</h6>
-                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus aut mollitia eum ipsum fugiat odio officiis odit.</p>
-                  </div>
-                  <div class="card-footer">
-                    <a href="#">name@example.com</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <h2>Our Customers</h2>
-            <div class="row">
-              <div class="col-lg-2 col-sm-4 mb-4">
-                <img class="img-fluid" src="http://placehold.it/500x300" alt="">
-              </div>
-              <div class="col-lg-2 col-sm-4 mb-4">
-                <img class="img-fluid" src="http://placehold.it/500x300" alt="">
-              </div>
-              <div class="col-lg-2 col-sm-4 mb-4">
-                <img class="img-fluid" src="http://placehold.it/500x300" alt="">
-              </div>
-              <div class="col-lg-2 col-sm-4 mb-4">
-                <img class="img-fluid" src="http://placehold.it/500x300" alt="">
-              </div>
-              <div class="col-lg-2 col-sm-4 mb-4">
-                <img class="img-fluid" src="http://placehold.it/500x300" alt="">
-              </div>
-              <div class="col-lg-2 col-sm-4 mb-4">
-                <img class="img-fluid" src="http://placehold.it/500x300" alt="">
-              </div>
-            </div>
-        -->
 
     </div>
     <!-- /.container -->
@@ -147,8 +79,8 @@
     <footer class="py-4 bg-dark">
         <div class="container">
             <div class="brand">
-                <a href="index.html"><img src="img/logo-rev.png" style="height:62px;width:158px;margin-right:30px;" /></a>
-                <div><img class="aurora" src="img/Aurora-main.svg" style="" /></div>
+                <a href="index.html"><img src="img/logo-rev.png" alt="Yukon Government Logo" style="height:62px;width:158px;margin-right:30px;" /></a>
+                <div><img class="aurora" src="img/Aurora-main.svg" alt="Yukon Government Branding"  style="" /></div>
             </div>
 
             <!--<p class="m-0 text-right text-white">Copyright &copy; Yukon Government 2020</p>-->
@@ -178,7 +110,21 @@
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
+    <!-- Matomo -->
+    <script type="text/javascript">
+      var _paq = window._paq = window._paq || [];
+      /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+      _paq.push(['trackPageView']);
+      _paq.push(['enableLinkTracking']);
+      (function() {
+        var u="https://analytics.gov.yk.ca/";
+        _paq.push(['setTrackerUrl', u+'matomo.php']);
+        _paq.push(['setSiteId', '67']);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+        g.type='text/javascript'; g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+      })();
+    </script>
+    <!-- End Matomo Code -->
 </body>
 
 </html>
