@@ -1,0 +1,369 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico" />
+
+  <title>Downloads - Yukon Permafrost Database</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="css/main.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light fixed-top">
+        <div class="container">
+            <div><a href="index.html"><img src="img/logo.png" alt="Yukon Government Logo" style="height:40px;width:auto;margin-right:30px;" /></a></div>
+            <a class="navbar-brand" href="index.html">Yukon Permafrost Database</a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="Geotech.html">Geotechnical data</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Temperature.html">Temperature data</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Map.html">Map</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Reports.html">Reports</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <!-- Page Heading/Breadcrumbs -->
+
+
+
+        <!-- Intro Content -->
+        <div class="row" style='margin-top:40px;margin-bottom:40px;'>
+            <!--<div class="col-lg-6">
+                <img class="img-fluid rounded mb-4" src="img/hilltop.jpg" alt="">
+            </div>-->
+            <div class="col-lg-12">
+                <h2>Lookup Table Codes</h2>
+                <p>This page is a placeholder for all USC codes and Ground Ice description codes.  The idea is that the user will find this page via a popup on the geotech shiny app. </p>
+                <br>
+                <h2>Ground Ice Description Codes</h2>
+                <table id="myTable">
+                  <thead>
+                    <tr>
+                      <th>Code</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>X</td>
+                      <td>Material not frozen</td>
+                    </tr>
+                    <tr>
+                      <td>F</td>
+                      <td>Material frozen - type unknown</td>
+                    </tr>
+                    <tr>
+                      <td>Fx</td>
+                      <td>Material partially frozen - type unknown</td>
+                    </tr>
+                    <tr>
+                      <td>N</td>
+                      <td>Ice not visible</td>
+                    </tr>
+                    <tr>
+                      <td>Nf</td>
+                      <td>Ice not visible - poorly bonded</td>
+                    </tr>
+                    <tr>
+                      <td>Nb</td>
+                      <td>Ice not visible - well bonded</td>
+                    </tr>
+                    <tr>
+                      <td>Nbn</td>
+                      <td>Ice not visible - well bonded - no excess ice</td>
+                    </tr>
+                    <tr>
+                      <td>Nbe</td>
+                      <td>Ice not visible - well bonded - excess ice</td>
+                    </tr>
+                    <tr>
+                      <td>V</td>
+                      <td>Visible ice</td>
+                    </tr>
+                    <tr>
+                      <td>Vx</td>
+                      <td>Visible ice - individual ice crystals or inclusions</td>
+                    </tr>
+                    <tr>
+                      <td>Vc</td>
+                      <td>Visible ice - ice coating on particles</td>
+                    </tr>
+                    <tr>
+                      <td>Vr</td>
+                      <td>Visible ice - Random or irregular orientations</td>
+                    </tr>
+                    <tr>
+                      <td>Vs</td>
+                      <td>Visible ice - stratified or oriented ice</td>
+                    </tr>
+                    <tr>
+                      <td>ICE</td>
+                      <td>Ice</td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                <br>
+                <h2>USC soil material codes</h2>
+                <table id="myTable2">
+                  <thead>
+                    <tr>
+                      <th>Code</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th>BR</th>
+                      <th>Bedrock</th>
+                    </tr>
+                    <tr>
+                      <td>BTTM</td>
+                      <td>Bottom</td>
+                    </tr>
+                    <tr>
+                      <td>GC</td>
+                      <td>Clayey gravels</td>
+                    </tr>
+                    <tr>
+                      <td>SC</td>
+                      <td>Clayey sands</td>
+                    </tr>
+                    <tr>
+                      <td>COAL</td>
+                      <td>Coal</td>
+                    </tr>
+                    <tr>
+                      <td>DLMT</td>
+                      <td>Dolomite</td>
+                    </tr>
+                    <tr>
+                      <td>FILL</td>
+                      <td>Fill</td>
+                    </tr>
+                    <tr>
+                      <td>GARB</td>
+                      <td>Garbage</td>
+                    </tr>
+                    <tr>
+                      <td>ICE</td>
+                      <td>Ice</td>
+                    </tr>
+                    <tr>
+                      <td>CH</td>
+                      <td>Inorganic clays</td>
+                    </tr>
+                    <tr>
+                      <td>CL</td>
+                      <td>Inorganic clays of low to medium plasticity</td>
+                    </tr>
+                    <tr>
+                      <td>MH</td>
+                      <td>Inorganic silts</td>
+                    </tr>
+                    <tr>
+                      <td>ML</td>
+                      <td>Inorganic silts and very fine sands</td>
+                    </tr>
+                    <tr>
+                      <td>LMSN</td>
+                      <td>Limestone</td>
+                    </tr>
+                    <tr>
+                      <td>MOSS</td>
+                      <td>Moss</td>
+                    </tr>
+                    <tr>
+                      <td>MDSN</td>
+                      <td>Mudstone</td>
+                    </tr>
+                    <tr>
+                      <td>OH</td>
+                      <td>Organic clays</td>
+                    </tr>
+                    <tr>
+                      <td>OL</td>
+                      <td>Organic silts and organic clays of low plasticity</td>
+                    </tr>
+                    <tr>
+                      <td>OB, OV</td>
+                      <td>Overburden</td>
+                    </tr>
+                    <tr>
+                      <td>PT</td>
+                      <td>Peat and other highly organic soils</td>
+                    </tr>
+                    <tr>
+                      <td>GP</td>
+                      <td>Poorly-graded gravels</td>
+                    </tr>
+                    <tr>
+                      <td>SP</td>
+                      <td>Poorly-graded sands</td>
+                    </tr>
+                    <tr>
+                      <td>QRTZ</td>
+                      <td>Quartz</td>
+                    </tr>
+                    <tr>
+                      <td>ROCK</td>
+                      <td>Rock</td>
+                    </tr>
+                    <tr>
+                      <td>RBLE</td>
+                      <td>Rubble</td>
+                    </tr>
+                    <tr>
+                      <td>SNDS</td>
+                      <td>Sandstone</td>
+                    </tr>
+                    <tr>
+                      <td>SH</td>
+                      <td>Shale</td>
+                    </tr>
+                    <tr>
+                      <td>SI</td>
+                      <td>Siltstone</td>
+                    </tr>
+                    <tr>
+                      <td>GM</td>
+                      <td>Silty gravels</td>
+                    </tr>
+                    <tr>
+                      <td>SM</td>
+                      <td>Silty sands</td>
+                    </tr>
+                    <tr>
+                      <td>TAIL</td>
+                      <td>Tailings</td>
+                    </tr>
+                    <tr>
+                      <td>TILL</td>
+                      <td>Till</td>
+                    </tr>
+                    <tr>
+                      <td>UNSP</td>
+                      <td>Unspecified</td>
+                    </tr>
+                    <tr>
+                      <td>VGTN</td>
+                      <td>Vegetation</td>
+                    </tr>
+                    <tr>
+                      <td>WRCK</td>
+                      <td>Waste Rock</td>
+                    </tr>
+                    <tr>
+                      <td>WATR</td>
+                      <td>Water</td>
+                    </tr>
+                    <tr>
+                      <td>GW</td>
+                      <td>Well graded gravels</td>
+                    </tr>
+                    <tr>
+                      <td>SW</td>
+                      <td>Well-graded sands</td>
+                    </tr>
+                  </tbody>
+                  </table>
+            </div>
+        </div>
+
+    </div>
+    <!-- /.container -->
+    <!-- Footer -->
+    <footer class="py-4 bg-dark">
+        <div class="container">
+            <div class="brand">
+                <a href="index.html"><img src="img/logo-rev.png" alt="Yukon Government Logo" style="height:62px;width:158px;margin-right:30px;" /></a>
+                <div><img class="aurora" src="img/Aurora-main.svg" alt="Yukon Government Branding"  style="" /></div>
+            </div>
+
+            <!--<p class="m-0 text-right text-white">Copyright &copy; Yukon Government 2020</p>-->
+        </div>
+        <!-- /.container -->
+    </footer>
+    <div id="footer-menu" class="py-4">
+
+        <div class="container">
+            <p style="float:right;">Copyright &copy;<script>new Date().getFullYear()>2017&&document.write(new Date().getFullYear());</script> Government of Yukon </p>
+            <ul class="fNav" style="float:left;">
+                <li><a href="https://yukon.ca/en" class="active">Home</a></li>
+            </ul>
+            <ul class="fNav" style="float:left;">
+                <li><a href="https://yukon.ca/en/disclaimer">Disclaimer</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Datatable -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.css">
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js"></script>
+    <script>
+    $(document).ready( function () {
+    $('#myTable').DataTable({
+      paging: false,
+      searching: false,
+      ordering: false,
+      bInfo: false
+    });
+    $('#myTable2').DataTable({
+      paging: false,
+      searching: false,
+      ordering: false,
+      bInfo: false
+    });
+    } );
+
+    </script>
+    <!-- Matomo -->
+    <script type="text/javascript">
+      var _paq = window._paq = window._paq || [];
+      /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+      _paq.push(['trackPageView']);
+      _paq.push(['enableLinkTracking']);
+      (function() {
+        var u="https://analytics.gov.yk.ca/";
+        _paq.push(['setTrackerUrl', u+'matomo.php']);
+        _paq.push(['setSiteId', '67']);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+        g.type='text/javascript'; g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+      })();
+    </script>
+    <!-- End Matomo Code -->
+</body>
+
+</html>
